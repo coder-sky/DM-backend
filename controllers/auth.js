@@ -23,9 +23,9 @@ export const login = (req, res) => {
                 const token = jwt.sign({ ...data_to_encrypt }, process.env.JWT_SECRET)
                 console.log(data_to_encrypt)
                 return res.cookie('ssid', token,{
-                    httpOnly: true,
-    secure: true,
-    sameSite: 'None', 
+                    httpOnly: false,
+                    secure: true,
+                    sameSite: 'None', 
                 }).status(200).json(data_to_encrypt)
             }
             else {
