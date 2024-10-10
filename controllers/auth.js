@@ -24,7 +24,7 @@ export const login = (req, res) => {
                 console.log(data_to_encrypt)
                 return res.cookie('ssid', token,{
                    
-                    httpOnly: true,
+                    httpOnly: false,
                     secure: true,
                     sameSite: 'None', 
                     
