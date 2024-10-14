@@ -24,7 +24,7 @@ export const login = (req, res) => {
                 console.log(data_to_encrypt)
                 
                 return res.cookie('ssid', token,{
-                    domain:'.vercel.app', 
+
                     httpOnly: false,
                     secure: true,
                     sameSite: 'none',
