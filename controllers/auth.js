@@ -53,13 +53,13 @@ export const login = (req, res) => {
     //res.send('ok')
 }
 
-export const logout = (req, res) => {
-    //console.log(req.cookies.USERAUTHID)
-    return res.clearCookie('ssid').status(200).json('Logged Out!')
-}
+// export const logout = (req, res) => {
+//     //console.log(req.cookies.USERAUTHID)
+//     return res.clearCookie('ssid').status(200).json('Logged Out!')
+// }
 
 export const checkuser = async (req, res) => {
-    //console.log(req.cookies, req.checkAuth)
+    console.log(req.checkAuth)
     const {isAuth,client_name, username, email, role} = req.checkAuth
     try {
         if (isAuth) {
@@ -87,7 +87,7 @@ export const checkuser = async (req, res) => {
 
         }
         else {
-            return res.clearCookie('USERAUTHID').status(401).json('Unauthorized')
+            return res.status(401).json('Unauthorized')
         }
 
 
