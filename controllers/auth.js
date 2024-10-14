@@ -22,14 +22,12 @@ export const login = (req, res) => {
                 delete data_to_encrypt['password']
                 const token = jwt.sign({ ...data_to_encrypt }, process.env.JWT_SECRET)
                 console.log(data_to_encrypt)
-                res.set('Connection', 'keep-alive');
-    res.set('Keep-Alive', 'timeout=5, max=1000');  // Adjust timeout and max requests
-    res.send('Keep-Alive set');
+                
                 return res.cookie('ssid', token,{
-                    
+                    domain:'.vercel.app', 
                     httpOnly: false,
                     secure: true,
-                    sameSite: 'None',
+                    sameSite: 'none',
                     maxAge: 30 * 24 * 60 * 60 * 1000,
                     path: '/',
 
