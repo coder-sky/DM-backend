@@ -22,7 +22,16 @@ export const login = (req, res) => {
                 delete data_to_encrypt['password']
                 const token = jwt.sign({ ...data_to_encrypt }, process.env.JWT_SECRET)
                 console.log(data_to_encrypt)
-                return res.cookie('ssid', token).status(200).json(data_to_encrypt)
+                return res.cookie('ssid', token,{
+
+                    httpOnly: false,
+                    secure: true,
+                    sameSite: 'None',
+                    maxAge: 30 * 24 * 60 * 60 * 1000,
+                    path: '/',
+
+                    
+                }).status(200).json(data_to_encrypt)
             }
             else {
                 return res.status(406).json('Invalid Username/Password')
