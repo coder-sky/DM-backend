@@ -25,11 +25,11 @@ export const login = (req, res) => {
                 
                 return res.cookie('ssid', token,{
 
-                    httpOnly: false,
-                    secure: true,
-                    sameSite: 'none',
-                    maxAge: 30 * 24 * 60 * 60 * 1000,
-                    path: '/',
+                    // httpOnly: false,
+                    // secure: true,
+                    // sameSite: 'none',
+                    // maxAge: 30 * 24 * 60 * 60 * 1000,
+                    // path: '/',
 
                     
                 }).status(200).json(data_to_encrypt)

@@ -14,7 +14,7 @@ import reportFormRoute  from './routes/reportform.js'
 
 const app = express()
 
-app.set("trust proxy", 1);
+
 
 app.use(cors({
     origin: process.env.FRONTEND_URL,
