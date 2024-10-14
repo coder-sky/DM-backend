@@ -26,8 +26,8 @@ export const login = (req, res) => {
                 return res.cookie('ssid', token,{
 
                     // httpOnly: false,
-                    // secure: true,
-                    sameSite: 'none',
+                    secure: true,
+                    sameSite: 'None',
                     // maxAge: 30 * 24 * 60 * 60 * 1000,
                     // path: '/',
 
