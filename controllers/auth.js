@@ -22,6 +22,9 @@ export const login = (req, res) => {
                 delete data_to_encrypt['password']
                 const token = jwt.sign({ ...data_to_encrypt }, process.env.JWT_SECRET)
                 console.log(data_to_encrypt)
+                res.set('Connection', 'keep-alive');
+    res.set('Keep-Alive', 'timeout=5, max=1000');  // Adjust timeout and max requests
+    res.send('Keep-Alive set');
                 return res.cookie('ssid', token,{
                     
                     httpOnly: false,
