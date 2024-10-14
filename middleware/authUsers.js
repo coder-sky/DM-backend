@@ -12,8 +12,6 @@ export const checkAuthentication = function (req, res, next) {
             role: 'none',
             email: 'none'
         }
-        res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
         next()
     }
     else {
@@ -23,8 +21,6 @@ export const checkAuthentication = function (req, res, next) {
                 isAuth: true,
                 ...verifyKey
             }
-            res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
             next()
 
         }
@@ -37,8 +33,6 @@ export const checkAuthentication = function (req, res, next) {
                 role: 'none',
                 email: 'none'
             }
-            res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
             next()
 
         }
