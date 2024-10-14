@@ -27,7 +27,7 @@ export const login = (req, res) => {
 
                     // httpOnly: false,
                     // secure: true,
-                    // sameSite: 'none',
+                    sameSite: 'none',
                     // maxAge: 30 * 24 * 60 * 60 * 1000,
                     // path: '/',
 
