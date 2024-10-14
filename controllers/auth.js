@@ -21,18 +21,28 @@ export const login = (req, res) => {
                 const data_to_encrypt = result[0];
                 delete data_to_encrypt['password']
                 const token = jwt.sign({ ...data_to_encrypt }, process.env.JWT_SECRET)
-                console.log(data_to_encrypt)
+                // console.log(data_to_encrypt)
+                // req.session.user = {token}
+                // console.log('Session after login:', req.session);
+                // req.session.save(err => {
+                //     if (err) {
+                //         return res.status(500).json({ message: 'Failed to save session' });
+                //     }
+                //     res.send(data_to_encrypt)
+                // })
                 
-                return res.cookie('ssid', token,{
+                
+                // return res.cookie('ssid', token,{
 
-                    // httpOnly: false,
-                    secure: true,
-                    sameSite: 'None',
-                    // maxAge: 30 * 24 * 60 * 60 * 1000,
-                    // path: '/',
+                //     // httpOnly: false,
+                //     secure: true,
+                //     sameSite: 'None',
+                //     // maxAge: 30 * 24 * 60 * 60 * 1000,
+                //     // path: '/',
 
                     
-                }).status(200).json(data_to_encrypt)
+                // }).status(200).json(data_to_encrypt)
+                res.send(token)
             }
             else {
                 return res.status(406).json('Invalid Username/Password')
