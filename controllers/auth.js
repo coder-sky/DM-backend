@@ -155,11 +155,7 @@ export const verifycode = (req, res) => {
             }
             else {
                 const token = jwt.sign(req.body, process.env.JWT_SECRET)
-                return res.cookie('validationid', token,{
-                    httpOnly: true,
-                    secure: true,
-                    sameSite: 'none',
-                }).json('otp verification successfull')
+                return res.json(token)
             }
         }
 
@@ -169,10 +165,10 @@ export const verifycode = (req, res) => {
 }
 
 export const resetpassword = (req, res) => {
-    console.log(req.body)
-    console.log(req.cookies)
-    const { username, email, password } = req.body
-    const { validationid } = req.cookies
+    // console.log(req.body)
+    // console.log(req.cookies)
+    const { username, email, password, validationid } = req.body
+    
     if (validationid) {
         const verify = jwt.verify(validationid, process.env.JWT_SECRET)
         console.log(verify)
@@ -210,6 +206,9 @@ export const resetpassword = (req, res) => {
 
         })
 
+    }
+    else{
+        return res.status(500).json('Validation Failed Try Again!')
     }
 
 }
