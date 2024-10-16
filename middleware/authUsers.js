@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 
 
 export const checkAuthentication = function (req, res, next) {
-    //console.log(req.body, req.session)
+    //console.log(req.cookies)
     //console.log(req.headers)
     const authKey = req.headers.authorization //req.cookies.ssid
     //console.log(authKey)
