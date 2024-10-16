@@ -158,7 +158,7 @@ export const verifycode = (req, res) => {
                 return res.cookie('validationid', token,{
                     httpOnly: true,
                     secure: true,
-                    sameSite: 'None',
+                    sameSite: 'none',
                 }).json('otp verification successfull')
             }
         }
