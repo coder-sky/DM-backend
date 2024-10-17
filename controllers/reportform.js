@@ -556,7 +556,7 @@ export const clientdashboardadmin = async (req, res) => {
                 newData.push(newObj)
             })
 
-            tableData = { headers: col.map(col => ({ field: col, header: col.toUpperCase().replace('_', ' ') })), data: newData.map(data => ({ ...data, date: new Date(data.date).toLocaleString('en-CA').slice(0, 9) })) }
+            tableData = { headers: col.map(col => ({ field: col, header: col.toUpperCase().replace('_', ' ') })), data: newData}
 
 
 
