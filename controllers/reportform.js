@@ -340,7 +340,7 @@ export const clientdashboard = async (req, res) => {
                 //     day_rec.forEach(rec)
                 // })
 
-                col = col.filter(name => [...clientAccess, 'state', 'city', 'date'].includes(name))
+                col = col.filter(name => [...clientAccess,  'date'].includes(name))
                 areaGraphData = { labels: dates.map(date => new Date(date).toLocaleString(undefined, { month: 'short', day: '2-digit' }).slice(0, 10)), data: campBasedOn.map(camp => ({ [camp]: dates.map(date => campRecords.filter(rec => new Date(rec.date).toString() === new Date(date).toString()).reduce((acc, curr) => acc + curr[camp], 0)) })) }
                 donutGraphData = { labels: campBasedOn.map(camp => camp[0].toUpperCase() + camp.slice(1,)), data: campBasedOn.map(camp => (campRecords.reduce((acc, curr) => acc + curr[camp], 0))) }
                 //console.log(col)
@@ -408,7 +408,7 @@ export const campaigninfo = async (req, res) => {
             //     day_rec.forEach(rec)
             // })
 
-            col = col.filter(name => [...clientAccess, 'state', 'city', 'date'].includes(name))
+            col = col.filter(name => [...clientAccess,  'date'].includes(name))
             areaGraphData = { labels: dates.map(date => new Date(date).toLocaleString(undefined, { month: 'short', day: '2-digit' }).slice(0, 10)), data: campBasedOn.map(camp => ({ [camp]: dates.map(date => campRecords.filter(rec => new Date(rec.date).toString() === new Date(date).toString()).reduce((acc, curr) => acc + curr[camp], 0)) })) }
             donutGraphData = { labels: campBasedOn.map(camp => camp[0].toUpperCase() + camp.slice(1,)), data: campBasedOn.map(camp => (campRecords.reduce((acc, curr) => acc + curr[camp], 0))) }
             //console.log(col)
@@ -460,7 +460,7 @@ export const searchcampaign = async (req, res) => {
                 const campBasedOn = campRecords[0]['camp_based_on'].split(',')
                 const clientAccess = campRecords[0]['client_camp_access'].split(',')
                 let col = Object.keys(campRecords[0])
-                col = col.filter(name => [...clientAccess, 'state', 'city', 'date'].includes(name))
+                col = col.filter(name => [...clientAccess,  'date'].includes(name))
                 areaGraphData = { labels: dates.map(date => new Date(date).toLocaleString(undefined, { month: 'short', day: '2-digit' }).slice(0, 10)), data: campBasedOn.map(camp => ({ [camp]: dates.map(date => campRecords.filter(rec => new Date(rec.date).toString() === new Date(date).toString()).reduce((acc, curr) => acc + curr[camp], 0)) })) }
                 donutGraphData = { labels: campBasedOn.map(camp => camp[0].toUpperCase() + camp.slice(1,)), data: campBasedOn.map(camp => (campRecords.reduce((acc, curr) => acc + curr[camp], 0))) }
 
@@ -542,7 +542,7 @@ export const clientdashboardadmin = async (req, res) => {
             //     day_rec.forEach(rec)
             // })
 
-            col = col.filter(name => [...clientAccess, 'state', 'city', 'date'].includes(name))
+            col = col.filter(name => [...clientAccess,  'date'].includes(name)) //'state', 'city', changed
             areaGraphData = { labels: dates.map(date => new Date(date).toLocaleString(undefined, { month: 'short', day: '2-digit' }).slice(0, 10)), data: campBasedOn.map(camp => ({ [camp]: dates.map(date => campRecords.filter(rec => new Date(rec.date).toString() === new Date(date).toString()).reduce((acc, curr) => acc + curr[camp], 0)) })) }
             donutGraphData = { labels: campBasedOn.map(camp => camp[0].toUpperCase() + camp.slice(1,)), data: campBasedOn.map(camp => (campRecords.reduce((acc, curr) => acc + curr[camp], 0))) }
             //console.log(col)
